@@ -151,6 +151,18 @@
   line-height: 1.4;
   color: var(--color-text);
   text-align: center;
+  margin-bottom: 16px;
+}
+
+.sectionSub {
+  position: relative;
+  z-index: 3;
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  text-align: center;
   margin-bottom: 56px;
 }
 
@@ -409,6 +421,11 @@
 
   .sectionHeading {
     font-size: 40px;
+    margin-bottom: 16px;
+  }
+
+  .sectionSub {
+    font-size: 17px;
     margin-bottom: 64px;
   }
 
@@ -458,6 +475,10 @@
 
   .sectionHeading {
     font-size: 48px;
+  }
+
+  .sectionSub {
+    font-size: 18px;
   }
 
   .columns {

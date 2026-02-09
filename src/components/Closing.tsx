@@ -124,7 +124,7 @@ export default function Closing() {
 
           {/* CTA button */}
           <a href="#contact" className={styles.ctaButton}>
-            <span className={styles.ctaText}>無料相談に参加する</span>
+            <span className={styles.ctaText}>START !</span>
           </a>
 
           {/* Badge */}

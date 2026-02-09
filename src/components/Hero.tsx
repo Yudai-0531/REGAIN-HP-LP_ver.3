@@ -122,24 +122,22 @@ export default function Hero() {
       <div className={styles.content}>
         <h1 ref={mainCopyRef} className={styles.mainCopy}>
           <span className={styles.heroLine}>
-            毎月1万円の
-            <span className={styles.accent}>「死に金」</span>を、
+            チームから
+            <span className={styles.accent}>毎月払う1万円。</span>
           </span>
+          <span className={styles.heroLine}>そのホームページにかかる費用、</span>
           <span className={styles.heroLine}>いつまで払い続ける？</span>
         </h1>
 
         <p ref={subCopyRef} className={styles.subCopy}>
-          <span className={styles.accent}>
-            保護者にクレームを言われるHP
-          </span>
-          を捨て、
+          「正直、うちのホームページってダサいよね…」
           <br />
-          Webの所有権を取り戻せ。
+          その気持ちから、解放され、新しい時代のホームページ運用をしよう。
         </p>
 
         <div ref={ctaRef} className={styles.ctaWrap}>
           <a href="#contact" className={styles.ctaButton}>
-            <span className={styles.ctaText}>無料相談に参加する</span>
+            <span className={styles.ctaText}>START !</span>
             {/* HUD corner decorations */}
             <span className={`${styles.ctaCorner} ${styles.topLeft}`} />
             <span className={`${styles.ctaCorner} ${styles.topRight}`} />

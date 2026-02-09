@@ -3,13 +3,16 @@
 ## Section 1: HERO
 
 ### メインコピー
-毎月1万円の「死に金」を、いつまで払い続ける？
+- チームから毎月払う1万円。（「毎月払う1万円。」が赤色）
+- そのホームページにかかる費用、
+- いつまで払い続ける？
 
 ### サブコピー
-保護者にクレームを言われるHPを捨て、Webの所有権を取り戻せ。
+「正直、うちのホームページってダサいよね…」
+その気持ちから、解放され、新しい時代のホームページ運用をしよう。
 
 ### CTA
-無料相談に参加する
+START !
 
 ### バッジ
 全額返金保証付き
@@ -23,7 +26,10 @@ REGAIN: The Web Revolution for Sports & Wellness.
 STATUS QUO ANALYSIS: NEGATIVE
 
 ### 見出し
-既存業者の「搾取構造」
+既存のHP業者の「搾取構造」
+
+### 副題
+このAI時代は、時代遅れなホームページなんて、秒で作れるのに…
 
 ### 左パネル: CURRENT SYSTEM ARCHITECTURE
 - フロー: TEAM BUDGET → BLACK BOX AGENCY / ブラックボックス → OUTDATED SITE
@@ -141,5 +147,5 @@ FINAL OPERATION
 ### CTAカード
 - ロゴ: REGAIN
 - サブ: 無料相談・デモ体験はこちら
-- ボタン: 無料相談に参加する
+- ボタン: START !
 - バッジ: 全額返金保証付き

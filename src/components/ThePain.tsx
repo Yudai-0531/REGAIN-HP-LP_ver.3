@@ -161,8 +161,11 @@ export default function ThePain() {
 
       {/* Heading */}
       <h2 className={styles.sectionHeading}>
-        既存業者の<span className={styles.accent}>「搾取構造」</span>
+        既存のHP業者の<span className={styles.accent}>「搾取構造」</span>
       </h2>
+      <p className={styles.sectionSub}>
+        このAI時代は、時代遅れなホームページなんて、秒で作れるのに…
+      </p>
 
       {/* Two-column layout */}
       <div className={styles.columns}>
