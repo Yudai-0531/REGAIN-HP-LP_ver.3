@@ -81,6 +81,10 @@
   margin-right: auto;
 }
 
+.headingLine {
+  display: block;
+}
+
 .accent {
   color: var(--color-accent);
   text-shadow: 0 0 20px rgba(255, 0, 0, 0.3);

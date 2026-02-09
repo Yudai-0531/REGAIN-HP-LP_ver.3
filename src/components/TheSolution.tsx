@@ -178,10 +178,11 @@ export default function TheSolution() {
 
       {/* Heading */}
       <h2 className={`${styles.sectionHeading} ${styles.fadeUp}`}>
-        魚を買う必要はない。
-        <br />
-        魚の<span className={styles.accent}>釣り方</span>
-        を覚えれば、無駄は消える。
+        <span className={styles.headingLine}>魚を買う必要はない。</span>
+        <span className={styles.headingLine}>
+          魚の<span className={styles.accent}>釣り方</span>を覚えれば、
+        </span>
+        <span className={styles.headingLine}>無駄は消える。</span>
       </h2>
 
       {/* Sub */}
