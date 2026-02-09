@@ -79,7 +79,7 @@ export default function Closing() {
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.section}>
+    <section id="contact" ref={sectionRef} className={styles.section}>
       {/* Background layers */}
       <div className={styles.bgGrad} />
       <div className={styles.bgNoise} />

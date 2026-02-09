@@ -194,7 +194,7 @@ export default function Support() {
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.section}>
+    <section id="support" ref={sectionRef} className={styles.section}>
       {/* Background grid */}
       <div className={styles.gridBg} />
 

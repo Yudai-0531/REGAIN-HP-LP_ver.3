@@ -167,7 +167,7 @@ export default function TheSolution() {
   const regainEnd = toSvg(GRAPH.months, REGAIN_INITIAL + REGAIN_MONTHLY * GRAPH.months);
 
   return (
-    <section ref={sectionRef} className={styles.section}>
+    <section id="solution" ref={sectionRef} className={styles.section}>
       {/* Background grid */}
       <div className={styles.gridBg} />
 

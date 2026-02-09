@@ -139,7 +139,7 @@ export default function Plans() {
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.section}>
+    <section id="plans" ref={sectionRef} className={styles.section}>
       {/* Background grid */}
       <div className={styles.gridBg} />
 

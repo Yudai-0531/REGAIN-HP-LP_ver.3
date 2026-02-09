@@ -102,7 +102,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.hero}>
+    <section id="hero" ref={sectionRef} className={styles.hero}>
       {/* Glitch overlay */}
       <div ref={glitchRef} className={styles.glitchOverlay}>
         <div className={styles.glitchBar} />

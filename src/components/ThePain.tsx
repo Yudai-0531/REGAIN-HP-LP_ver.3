@@ -134,7 +134,7 @@ export default function ThePain() {
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.section}>
+    <section id="pain" ref={sectionRef} className={styles.section}>
       {/* Background grid */}
       <div className={styles.gridBg} />
 
