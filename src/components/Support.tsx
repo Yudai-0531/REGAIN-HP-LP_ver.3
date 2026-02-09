@@ -29,7 +29,7 @@ const STAGES = [
     code: "PHASE_03",
     name: "Spot Support",
     nameSub: "スポット対応",
-    period: "¥3,300 / 回〜",
+    period: "¥22,000 / 回〜",
     desc: "必要な時だけ依頼できる単発サポート。大きな変更やページ追加に対応。",
   },
 ] as const;

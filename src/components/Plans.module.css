@@ -77,7 +77,7 @@
 
 .accent {
   color: var(--color-accent);
-  text-shadow: 0 0 20px rgba(215, 0, 58, 0.3);
+  text-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
 }
 
 /* ----------------------------------------
@@ -119,12 +119,12 @@
 
 /* Red card hover */
 .cardRed:hover {
-  border-color: rgba(215, 0, 58, 0.45);
-  box-shadow: 0 0 24px rgba(215, 0, 58, 0.1), 0 8px 32px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 0, 0, 0.45);
+  box-shadow: 0 0 24px rgba(255, 0, 0, 0.1), 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .cardRed {
-  border-color: rgba(215, 0, 58, 0.2);
+  border-color: rgba(255, 0, 0, 0.2);
 }
 
 /* ----------------------------------------
@@ -234,7 +234,7 @@
 
 .gaugeRed {
   background: var(--color-accent);
-  box-shadow: 0 0 8px rgba(215, 0, 58, 0.4);
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
 }
 
 /* ----------------------------------------
@@ -261,7 +261,7 @@
 
 .iconRed {
   color: var(--color-accent);
-  filter: drop-shadow(0 0 8px rgba(215, 0, 58, 0.3));
+  filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.3));
 }
 
 /* ----------------------------------------
@@ -319,7 +319,7 @@
 
 .priceRed {
   color: var(--color-accent);
-  text-shadow: 0 0 16px rgba(215, 0, 58, 0.3);
+  text-shadow: 0 0 16px rgba(255, 0, 0, 0.3);
 }
 
 .priceSub {
@@ -367,7 +367,7 @@
 
 .dotRed {
   background: var(--color-accent);
-  box-shadow: 0 0 6px rgba(215, 0, 58, 0.5);
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.5);
 }
 
 /* ----------------------------------------
@@ -391,7 +391,7 @@
 
 .loadoutRed {
   color: var(--color-accent);
-  border-top-color: rgba(215, 0, 58, 0.2);
+  border-top-color: rgba(255, 0, 0, 0.2);
 }
 
 /* ----------------------------------------
@@ -481,14 +481,14 @@
   align-items: center;
   gap: 16px;
   padding: 20px 28px;
-  border: 1px solid rgba(215, 0, 58, 0.25);
-  background: rgba(215, 0, 58, 0.05);
+  border: 1px solid rgba(255, 0, 0, 0.25);
+  background: rgba(255, 0, 0, 0.05);
 }
 
 .guaranteeIcon {
   font-size: 28px;
   color: var(--color-accent);
-  filter: drop-shadow(0 0 6px rgba(215, 0, 58, 0.3));
+  filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.3));
   line-height: 1;
   flex-shrink: 0;
 }

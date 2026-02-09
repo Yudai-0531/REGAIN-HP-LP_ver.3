@@ -13,8 +13,8 @@ gsap.registerPlugin(ScrollTrigger);
 const PLAN_A = {
   code: "PLAN_A",
   loadout: "CHALLENGER LOADOUT",
-  name: "AIコーチング型",
-  price: "¥55,000",
+  name: "Lite Plan",
+  price: "¥66,000",
   priceSub: "（税込）",
   sub: "自分で作る力を手に入れる",
   features: [
@@ -29,8 +29,8 @@ const PLAN_A = {
 const PLAN_B = {
   code: "PLAN_B",
   loadout: "HYBRID ASSAULT LOADOUT",
-  name: "コーチング＋制作代行",
-  price: "¥150,000",
+  name: "Pro Plan",
+  price: "¥132,000",
   priceSub: "（税込）",
   sub: "プロの仕上がりを、あなたの手元に",
   recommended: true,
@@ -363,7 +363,7 @@ export default function Plans() {
         </div>
         <div className={styles.careRight}>
           <p className={styles.carePrice}>
-            月額 <strong>¥1,100</strong>（税込）〜 / 修正依頼 Max ¥3,300
+            月額 <strong>¥1,100</strong>（税込）〜 / 修正依頼 ¥22,000
           </p>
           <p className={styles.careDesc}>
             公開後も安心。軽微な修正・相談をカバーするサポートプラン。

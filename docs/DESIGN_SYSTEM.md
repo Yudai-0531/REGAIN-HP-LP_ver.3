@@ -5,8 +5,8 @@
 | Token | HEX | 用途 |
 |---|---|---|
 | `--color-bg` | `#0D0D0D` | 全体背景（漆黒） |
-| `--color-accent` | `#D7003A` | CTA・強調テキスト（攻撃的な赤） |
-| `--color-accent-hover` | `#FF1A53` | ホバー時のアクセント |
+| `--color-accent` | `#FF0000` | CTA・強調テキスト（攻撃的な赤） |
+| `--color-accent-hover` | `#FF3333` | ホバー時のアクセント |
 | `--color-text` | `#FFFFFF` | 本文テキスト（輝く白） |
 | `--color-text-muted` | `rgba(255,255,255,0.6)` | 補足テキスト |
 | `--color-hud-cyan` | `#00F0FF` | HUD装飾・サブアクセント |

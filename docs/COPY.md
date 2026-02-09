@@ -59,7 +59,7 @@ AI × 自走が生む、圧倒的なコスト革命
 
 ### HUDカード
 最高級のWebサイトを「所有」し、AIで「運用」する。
-(Agency fixes capped at Max ¥3,300/mo)
+(Agency fixes capped at ¥22,000/mo)
 
 ## Section 4: PLANS（プラン選択）
 
@@ -70,8 +70,8 @@ SELECT YOUR WEAPON
 チームの状況に合わせて選べる「2つの武器」
 
 ### Plan A: CHALLENGER LOADOUT
-- タイプ: AIコーチング型
-- 価格: ¥55,000（税込）
+- タイプ: Lite Plan
+- 価格: ¥66,000（税込）
 - サブ: 自分で作る力を手に入れる
 - 特徴:
   - AI活用HP制作コーチング（全4回）
@@ -81,8 +81,8 @@ SELECT YOUR WEAPON
   - 完成後の自走マニュアル
 
 ### Plan B: HYBRID ASSAULT LOADOUT（推奨）
-- タイプ: コーチング＋制作代行
-- 価格: ¥150,000（税込）
+- タイプ: Pro Plan
+- 価格: ¥132,000（税込）
 - サブ: プロの仕上がりを、あなたの手元に
 - 特徴:
   - Plan Aの全内容
@@ -94,7 +94,7 @@ SELECT YOUR WEAPON
 
 ### REGAIN Care
 - ラベル: SYSTEM PROTECTION ACTIVE
-- 内容: 月額 ¥1,100（税込）〜 / 修正依頼 Max ¥3,300
+- 内容: 月額 ¥1,100（税込）〜 / 修正依頼 ¥22,000
 - 説明: 公開後も安心。軽微な修正・相談をカバーするサポートプラン。
 
 ### 全額返金保証
@@ -122,7 +122,7 @@ DEFENSE PROTOCOL
 
 #### Spot Support（スポット対応）
 - アイコン: レンチ
-- 価格: ¥3,300 / 回〜
+- 価格: ¥22,000 / 回〜
 - 内容: 必要な時だけ依頼できる単発サポート。大きな変更やページ追加に対応。
 
 ## Section 6: CLOSING（Final CTA）

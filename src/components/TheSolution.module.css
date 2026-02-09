@@ -83,7 +83,7 @@
 
 .accent {
   color: var(--color-accent);
-  text-shadow: 0 0 20px rgba(215, 0, 58, 0.3);
+  text-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
 }
 
 .subHeading {
@@ -169,7 +169,7 @@
 
 .tradLabel .labelLine {
   background: var(--color-accent);
-  box-shadow: 0 0 6px rgba(215, 0, 58, 0.5);
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.5);
 }
 
 .regainLabel .labelLine {

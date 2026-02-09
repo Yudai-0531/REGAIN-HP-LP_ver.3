@@ -356,7 +356,7 @@ export default function TheSolution() {
           最高級のWebサイトを「所有」し、AIで「運用」する。
         </p>
         <p className={styles.hudSub}>
-          (Agency fixes capped at Max ¥3,300/mo)
+          (Agency fixes capped at ¥22,000/mo)
         </p>
       </div>
     </section>

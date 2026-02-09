@@ -95,7 +95,7 @@
   overflow: hidden;
   z-index: 1;
   padding: 8px 0;
-  border-bottom: 1px solid rgba(215, 0, 58, 0.2);
+  border-bottom: 1px solid rgba(255, 0, 0, 0.2);
 }
 
 .ticker {
@@ -156,7 +156,7 @@
 
 .accent {
   color: var(--color-accent);
-  text-shadow: 0 0 20px rgba(215, 0, 58, 0.3);
+  text-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
 }
 
 /* ----------------------------------------
@@ -239,8 +239,8 @@
 
 .blackBox {
   border-color: var(--color-accent);
-  background: rgba(215, 0, 58, 0.08);
-  box-shadow: 0 0 20px rgba(215, 0, 58, 0.1);
+  background: rgba(255, 0, 0, 0.08);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
 }
 
 .blackBox .flowNodeLabel {
@@ -295,7 +295,7 @@
   gap: 12px;
   padding: 14px 20px;
   border: 1px solid var(--color-accent);
-  background: rgba(215, 0, 58, 0.1);
+  background: rgba(255, 0, 0, 0.1);
   font-family: var(--font-zen-kaku), sans-serif;
   font-weight: 900;
   font-size: 15px;
@@ -313,10 +313,10 @@
 @keyframes warningPulse {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(215, 0, 58, 0.3);
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.3);
   }
   50% {
-    box-shadow: 0 0 16px 2px rgba(215, 0, 58, 0.15);
+    box-shadow: 0 0 16px 2px rgba(255, 0, 0, 0.15);
   }
 }
 
@@ -356,7 +356,7 @@
   height: 10px;
   background: var(--color-accent);
   flex-shrink: 0;
-  box-shadow: 0 0 8px rgba(215, 0, 58, 0.4);
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
 }
 
 .errorCode {

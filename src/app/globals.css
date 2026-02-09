@@ -2,8 +2,8 @@
 
 :root {
   --color-bg: #0D0D0D;
-  --color-accent: #D7003A;
-  --color-accent-hover: #FF1A53;
+  --color-accent: #FF0000;
+  --color-accent-hover: #FF3333;
   --color-text: #FFFFFF;
   --color-text-muted: rgba(255, 255, 255, 0.6);
   --color-hud-cyan: #00F0FF;
