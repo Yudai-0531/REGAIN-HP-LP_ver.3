@@ -1,0 +1,348 @@
+/* ========================================
+   THE SOLUTION SECTION（コスト革命）
+   ======================================== */
+
+.section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 20px 100px;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+/* ----------------------------------------
+   Utility
+   ---------------------------------------- */
+.fadeUp {
+  /* GSAP will animate from opacity:0 / y:50 */
+}
+
+/* ----------------------------------------
+   Background grid (subtle)
+   ---------------------------------------- */
+.gridBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px;
+  mask-image: radial-gradient(
+    ellipse 80% 70% at 50% 50%,
+    black 20%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 70% at 50% 50%,
+    black 20%,
+    transparent 100%
+  );
+}
+
+/* ----------------------------------------
+   Section label & heading
+   ---------------------------------------- */
+.sectionLabel {
+  position: relative;
+  z-index: 3;
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: var(--color-hud-green);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 16px;
+  opacity: 0.8;
+}
+
+.sectionHeading {
+  position: relative;
+  z-index: 3;
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 1.6;
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: 16px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.accent {
+  color: var(--color-accent);
+  text-shadow: 0 0 20px rgba(215, 0, 58, 0.3);
+}
+
+.subHeading {
+  position: relative;
+  z-index: 3;
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+/* ----------------------------------------
+   Graph area
+   ---------------------------------------- */
+.graphWrap {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto 48px;
+  aspect-ratio: 800 / 420;
+  /* Faint border */
+  border: 1px solid var(--color-border);
+  background: rgba(26, 26, 26, 0.4);
+  padding: 8px;
+}
+
+.graphSvg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Glow duplicate lines (always visible, very faint) */
+.glowLine {
+  pointer-events: none;
+}
+
+/* SVG text styles */
+.axisTick {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 10px;
+  fill: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.05em;
+}
+
+.axisTitle {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 10px;
+  fill: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ----------------------------------------
+   Graph floating labels
+   ---------------------------------------- */
+.graphLabel {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 4;
+}
+
+.tradLabel {
+  /* positioned via inline style */
+}
+
+.regainLabel {
+  /* positioned via inline style */
+}
+
+.labelLine {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin-bottom: 4px;
+}
+
+.tradLabel .labelLine {
+  background: var(--color-accent);
+  box-shadow: 0 0 6px rgba(215, 0, 58, 0.5);
+}
+
+.regainLabel .labelLine {
+  background: var(--color-text);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+}
+
+.labelAccent {
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 900;
+  font-size: 13px;
+  color: var(--color-accent);
+  line-height: 1.3;
+}
+
+.labelWhite {
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 900;
+  font-size: 13px;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.labelTag {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+/* ----------------------------------------
+   HUD card
+   ---------------------------------------- */
+.hudCard {
+  position: relative;
+  z-index: 3;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 28px 32px;
+  border: 1px solid var(--color-border);
+  background: rgba(26, 26, 26, 0.6);
+  text-align: center;
+}
+
+.hudMain {
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.hudSub {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--color-hud-cyan);
+  line-height: 1.4;
+}
+
+/* HUD corner brackets */
+.hudCorner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--color-hud-cyan);
+  border-style: solid;
+  border-width: 0;
+  opacity: 0.6;
+}
+
+.cTL {
+  top: -1px;
+  left: -1px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.cTR {
+  top: -1px;
+  right: -1px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+.cBL {
+  bottom: -1px;
+  left: -1px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.cBR {
+  bottom: -1px;
+  right: -1px;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (min-width: 768px) {
+  .section {
+    padding: 140px 40px 120px;
+  }
+
+  .sectionHeading {
+    font-size: 38px;
+    margin-bottom: 20px;
+  }
+
+  .subHeading {
+    font-size: 20px;
+    margin-bottom: 64px;
+  }
+
+  .graphWrap {
+    padding: 16px;
+  }
+
+  .labelAccent,
+  .labelWhite {
+    font-size: 14px;
+  }
+
+  .labelTag {
+    font-size: 10px;
+  }
+
+  .hudCard {
+    text-align: left;
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  .hudMain {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 160px 80px 140px;
+  }
+
+  .sectionHeading {
+    font-size: 46px;
+  }
+
+  .subHeading {
+    font-size: 22px;
+  }
+
+  .hudCard {
+    padding: 32px 40px;
+  }
+
+  .hudMain {
+    font-size: 20px;
+  }
+
+  .hudSub {
+    font-size: 12px;
+  }
+
+  .hudCorner {
+    width: 18px;
+    height: 18px;
+  }
+}

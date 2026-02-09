@@ -39,3 +39,24 @@ STATUS QUO ANALYSIS: NEGATIVE
 
 ### スクロールテキスト
 SYSTEM FAILURE DETECTED
+
+## Section 3: THE SOLUTION（コスト革命）
+
+### セクションラベル
+SYSTEM UPGRADE INITIATED
+
+### 見出し
+魚を買う必要はない。魚の釣り方を覚えれば、無駄は消える。
+
+### サブ見出し
+AI × 自走が生む、圧倒的なコスト革命
+
+### コスト比較グラフ
+- X軸: Time (1 Year / 12 Months)
+- Y軸: Cumulative Cost (JPY) 0〜2,000,000
+- 赤い線（従来モデル）: 月額 10,000円〜 (DEPENDENCE / 依存)
+- 白い線（REGAINモデル）: 月額 1,100円〜 (OWNERSHIP / 自走)
+
+### HUDカード
+最高級のWebサイトを「所有」し、AIで「運用」する。
+(Agency fixes capped at Max ¥3,300/mo)
