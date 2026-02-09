@@ -1,0 +1,474 @@
+/* ========================================
+   THE PAIN SECTION (三重苦)
+   ======================================== */
+
+.section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 20px 100px;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+/* ----------------------------------------
+   Background grid
+   ---------------------------------------- */
+.gridBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+  background-size: 60px 60px;
+  mask-image: radial-gradient(
+    ellipse 70% 60% at 50% 50%,
+    black 30%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 70% 60% at 50% 50%,
+    black 30%,
+    transparent 100%
+  );
+}
+
+/* ----------------------------------------
+   HUD corner brackets
+   ---------------------------------------- */
+.hudCorner {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-color: var(--color-hud-cyan);
+  border-style: solid;
+  border-width: 0;
+  z-index: 2;
+  opacity: 0.5;
+}
+
+.cTopLeft {
+  top: 24px;
+  left: 24px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.cTopRight {
+  top: 24px;
+  right: 24px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+.cBottomLeft {
+  bottom: 24px;
+  left: 24px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.cBottomRight {
+  bottom: 24px;
+  right: 24px;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+/* ----------------------------------------
+   Scrolling ticker
+   ---------------------------------------- */
+.tickerWrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(215, 0, 58, 0.2);
+}
+
+.ticker {
+  display: flex;
+  gap: 80px;
+  white-space: nowrap;
+  animation: tickerScroll 20s linear infinite;
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  color: var(--color-accent);
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
+.ticker span {
+  flex-shrink: 0;
+}
+
+@keyframes tickerScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ----------------------------------------
+   Section label & heading
+   ---------------------------------------- */
+.sectionLabel {
+  position: relative;
+  z-index: 3;
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 16px;
+  opacity: 0.8;
+}
+
+.sectionHeading {
+  position: relative;
+  z-index: 3;
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 1.4;
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.accent {
+  color: var(--color-accent);
+  text-shadow: 0 0 20px rgba(215, 0, 58, 0.3);
+}
+
+/* ----------------------------------------
+   Two-column layout
+   ---------------------------------------- */
+.columns {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ----------------------------------------
+   Left panel: System Architecture
+   ---------------------------------------- */
+.leftPanel {
+  flex: 1;
+  border: 1px solid var(--color-border);
+  background: rgba(26, 26, 26, 0.6);
+  padding: 32px 24px;
+}
+
+.panelLabel {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--color-hud-cyan);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+}
+
+.panelLabelSub {
+  color: var(--color-text-muted);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+/* Flow diagram */
+.flowDiagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 32px;
+}
+
+.flowNode {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  padding: 16px 20px;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.03);
+  text-align: center;
+}
+
+.flowNodeLabel {
+  display: block;
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.flowNodeSub {
+  display: block;
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.blackBox {
+  border-color: var(--color-accent);
+  background: rgba(215, 0, 58, 0.08);
+  box-shadow: 0 0 20px rgba(215, 0, 58, 0.1);
+}
+
+.blackBox .flowNodeLabel {
+  color: var(--color-accent);
+}
+
+.lockIcon {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 18px;
+  filter: grayscale(1) brightness(2);
+}
+
+.outdated {
+  border-color: rgba(255, 255, 255, 0.15);
+  opacity: 0.7;
+}
+
+.outdated .flowNodeLabel {
+  color: var(--color-text-muted);
+}
+
+/* Arrows */
+.flowArrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 36px;
+  justify-content: center;
+}
+
+.arrowLine {
+  display: block;
+  width: 1px;
+  height: 16px;
+  background: var(--color-text-muted);
+}
+
+.arrowHead {
+  font-size: 10px;
+  color: var(--color-text-muted);
+  line-height: 1;
+  margin-top: -2px;
+}
+
+/* Warning */
+.warning {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border: 1px solid var(--color-accent);
+  background: rgba(215, 0, 58, 0.1);
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 900;
+  font-size: 15px;
+  color: var(--color-accent);
+  letter-spacing: 0.05em;
+  text-align: center;
+  animation: warningPulse 3s ease-in-out infinite;
+}
+
+.warningIcon {
+  font-size: 18px;
+  color: var(--color-accent);
+}
+
+@keyframes warningPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(215, 0, 58, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 16px 2px rgba(215, 0, 58, 0.15);
+  }
+}
+
+/* ----------------------------------------
+   Right panel: Error codes
+   ---------------------------------------- */
+.rightPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.errorList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.errorItem {
+  border: 1px solid var(--color-border);
+  background: rgba(26, 26, 26, 0.6);
+  padding: 24px;
+}
+
+.errorHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.errorIcon {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: var(--color-accent);
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(215, 0, 58, 0.4);
+}
+
+.errorCode {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+}
+
+.errorTitle {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.errorDesc {
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Emphasis box */
+.emphasisBox {
+  padding: 24px;
+  background: var(--color-accent);
+  text-align: center;
+}
+
+.emphasisBox p {
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-text);
+  letter-spacing: 0.03em;
+}
+
+/* ========================================
+   RESPONSIVE — Tablet & Desktop
+   ======================================== */
+@media (min-width: 768px) {
+  .section {
+    padding: 140px 40px 120px;
+  }
+
+  .sectionHeading {
+    font-size: 40px;
+    margin-bottom: 64px;
+  }
+
+  .columns {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .leftPanel {
+    padding: 40px 32px;
+  }
+
+  .flowNode {
+    padding: 20px 24px;
+  }
+
+  .flowNodeLabel {
+    font-size: 13px;
+  }
+
+  .warning {
+    font-size: 16px;
+  }
+
+  .errorItem {
+    padding: 28px;
+  }
+
+  .errorDesc {
+    font-size: 16px;
+  }
+
+  .emphasisBox p {
+    font-size: 18px;
+  }
+
+  .hudCorner {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 160px 80px 140px;
+  }
+
+  .sectionHeading {
+    font-size: 48px;
+  }
+
+  .columns {
+    gap: 56px;
+  }
+
+  .leftPanel {
+    padding: 48px 40px;
+  }
+
+  .errorItem {
+    padding: 32px;
+  }
+}
