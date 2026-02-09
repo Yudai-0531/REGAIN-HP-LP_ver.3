@@ -3,6 +3,7 @@ import ThePain from "@/components/ThePain";
 import TheSolution from "@/components/TheSolution";
 import Plans from "@/components/Plans";
 import Support from "@/components/Support";
+import Closing from "@/components/Closing";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <TheSolution />
       <Plans />
       <Support />
+      <Closing />
     </main>
   );
 }
