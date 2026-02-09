@@ -1,0 +1,595 @@
+/* ========================================
+   PLANS SECTION（プラン選択）
+   ======================================== */
+
+.section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 20px 100px;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.fadeUp {
+  /* GSAP target */
+}
+
+/* ----------------------------------------
+   Background grid
+   ---------------------------------------- */
+.gridBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    );
+  background-size: 52px 52px;
+  mask-image: radial-gradient(
+    ellipse 75% 65% at 50% 50%,
+    black 20%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 75% 65% at 50% 50%,
+    black 20%,
+    transparent 100%
+  );
+}
+
+/* ----------------------------------------
+   Section label & heading
+   ---------------------------------------- */
+.sectionLabel {
+  position: relative;
+  z-index: 3;
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: var(--color-hud-cyan);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 16px;
+  opacity: 0.8;
+}
+
+.sectionHeading {
+  position: relative;
+  z-index: 3;
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 1.5;
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.accent {
+  color: var(--color-accent);
+  text-shadow: 0 0 20px rgba(215, 0, 58, 0.3);
+}
+
+/* ----------------------------------------
+   Cards row
+   ---------------------------------------- */
+.cardsRow {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 960px;
+  margin: 0 auto 56px;
+  width: 100%;
+}
+
+/* ----------------------------------------
+   Card base
+   ---------------------------------------- */
+.card {
+  position: relative;
+  flex: 1;
+  padding: 32px 24px;
+  border: 1px solid var(--color-border);
+  background: rgba(26, 26, 26, 0.5);
+  transition: transform 0.35s ease, box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* Cyan card hover */
+.cardCyan:hover {
+  border-color: rgba(0, 240, 255, 0.35);
+  box-shadow: 0 0 24px rgba(0, 240, 255, 0.08), 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Red card hover */
+.cardRed:hover {
+  border-color: rgba(215, 0, 58, 0.45);
+  box-shadow: 0 0 24px rgba(215, 0, 58, 0.1), 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.cardRed {
+  border-color: rgba(215, 0, 58, 0.2);
+}
+
+/* ----------------------------------------
+   HUD corners
+   ---------------------------------------- */
+.corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-style: solid;
+  border-width: 0;
+  z-index: 4;
+}
+
+.cardCyan .corner {
+  border-color: var(--color-hud-cyan);
+  opacity: 0.5;
+}
+
+.cardRed .corner {
+  border-color: var(--color-accent);
+  opacity: 0.6;
+}
+
+.cTL {
+  top: -1px;
+  left: -1px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.cTR {
+  top: -1px;
+  right: -1px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+.cBL {
+  bottom: -1px;
+  left: -1px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.cBR {
+  bottom: -1px;
+  right: -1px;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+/* ----------------------------------------
+   Recommended badge
+   ---------------------------------------- */
+.recBadge {
+  position: absolute;
+  top: -1px;
+  right: 24px;
+  z-index: 5;
+  padding: 6px 16px;
+  background: var(--color-accent);
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--color-text);
+  text-transform: uppercase;
+}
+
+/* ----------------------------------------
+   Power gauge
+   ---------------------------------------- */
+.gauge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.gaugeLabel {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.gaugeTrack {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.gaugeFill {
+  height: 100%;
+  transition: width 1s ease;
+}
+
+.gaugeCyan {
+  background: var(--color-hud-cyan);
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+}
+
+.gaugeRed {
+  background: var(--color-accent);
+  box-shadow: 0 0 8px rgba(215, 0, 58, 0.4);
+}
+
+/* ----------------------------------------
+   Plan icon area
+   ---------------------------------------- */
+.iconArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+}
+
+.planIcon {
+  width: 56px;
+  height: 56px;
+}
+
+.iconCyan {
+  color: var(--color-hud-cyan);
+  filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.25));
+}
+
+.iconRed {
+  color: var(--color-accent);
+  filter: drop-shadow(0 0 8px rgba(215, 0, 58, 0.3));
+}
+
+/* ----------------------------------------
+   Plan text
+   ---------------------------------------- */
+.planCode {
+  display: block;
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.planName {
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.planSub {
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* ----------------------------------------
+   Price
+   ---------------------------------------- */
+.priceWrap {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+.price {
+  font-family: var(--font-orbitron), sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+}
+
+.priceRed {
+  color: var(--color-accent);
+  text-shadow: 0 0 16px rgba(215, 0, 58, 0.3);
+}
+
+.priceSub {
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+/* ----------------------------------------
+   Features list
+   ---------------------------------------- */
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.featureDot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  margin-top: 9px;
+  flex-shrink: 0;
+}
+
+.dotCyan {
+  background: var(--color-hud-cyan);
+  box-shadow: 0 0 6px rgba(0, 240, 255, 0.4);
+}
+
+.dotRed {
+  background: var(--color-accent);
+  box-shadow: 0 0 6px rgba(215, 0, 58, 0.5);
+}
+
+/* ----------------------------------------
+   Loadout label (bottom)
+   ---------------------------------------- */
+.loadout {
+  text-align: center;
+  padding: 12px 16px;
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-top: 1px solid var(--color-border);
+}
+
+.loadoutCyan {
+  color: var(--color-hud-cyan);
+  border-top-color: rgba(0, 240, 255, 0.15);
+}
+
+.loadoutRed {
+  color: var(--color-accent);
+  border-top-color: rgba(215, 0, 58, 0.2);
+}
+
+/* ----------------------------------------
+   REGAIN Care bar
+   ---------------------------------------- */
+.careBar {
+  position: relative;
+  z-index: 3;
+  max-width: 960px;
+  margin: 0 auto 32px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  background: rgba(0, 240, 255, 0.03);
+}
+
+.careLeft {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.careIcon {
+  font-size: 28px;
+  color: var(--color-hud-green);
+  filter: drop-shadow(0 0 6px rgba(0, 255, 136, 0.3));
+  line-height: 1;
+}
+
+.careLabel {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--color-hud-green);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.careTitle {
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--color-text);
+}
+
+.careRight {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.carePrice {
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.carePrice strong {
+  font-family: var(--font-orbitron), sans-serif;
+  font-weight: 900;
+  color: var(--color-hud-cyan);
+}
+
+.careDesc {
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+/* ----------------------------------------
+   Guarantee badge
+   ---------------------------------------- */
+.guarantee {
+  position: relative;
+  z-index: 3;
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 28px;
+  border: 1px solid rgba(215, 0, 58, 0.25);
+  background: rgba(215, 0, 58, 0.05);
+}
+
+.guaranteeIcon {
+  font-size: 28px;
+  color: var(--color-accent);
+  filter: drop-shadow(0 0 6px rgba(215, 0, 58, 0.3));
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.guaranteeTitle {
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  color: var(--color-accent);
+  margin-bottom: 2px;
+}
+
+.guaranteeDesc {
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (min-width: 768px) {
+  .section {
+    padding: 140px 40px 120px;
+  }
+
+  .sectionHeading {
+    font-size: 38px;
+    margin-bottom: 64px;
+  }
+
+  .cardsRow {
+    flex-direction: row;
+    gap: 28px;
+  }
+
+  .card {
+    padding: 36px 28px;
+  }
+
+  .planName {
+    font-size: 24px;
+  }
+
+  .price {
+    font-size: 36px;
+  }
+
+  .featureItem {
+    font-size: 15px;
+  }
+
+  .careBar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 24px 32px;
+  }
+
+  .careRight {
+    text-align: right;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 160px 80px 140px;
+  }
+
+  .sectionHeading {
+    font-size: 46px;
+  }
+
+  .cardsRow {
+    gap: 40px;
+  }
+
+  .card {
+    padding: 40px 36px;
+  }
+
+  .planName {
+    font-size: 26px;
+  }
+
+  .price {
+    font-size: 40px;
+  }
+
+  .careBar {
+    padding: 28px 40px;
+  }
+
+  .careTitle {
+    font-size: 20px;
+  }
+
+  .guarantee {
+    padding: 24px 36px;
+  }
+}

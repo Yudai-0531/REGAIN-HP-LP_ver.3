@@ -1,0 +1,98 @@
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+  position: relative;
+  width: 100%;
+  padding: 48px 20px 32px;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Logo */
+.logo {
+  font-family: var(--font-orbitron), sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: 0.2em;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.logo:hover {
+  color: var(--color-accent);
+}
+
+/* Socials */
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.socialLink:hover {
+  color: var(--color-text);
+  border-color: var(--color-hud-cyan);
+}
+
+.socialIcon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Divider */
+.divider {
+  width: 60px;
+  height: 1px;
+  background: var(--color-border);
+}
+
+/* Copyright */
+.copyright {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (min-width: 768px) {
+  .footer {
+    padding: 56px 40px 36px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .copyright {
+    font-size: 11px;
+  }
+}
