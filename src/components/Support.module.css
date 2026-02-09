@@ -1,0 +1,293 @@
+/* ========================================
+   SUPPORT SECTION（サポート体制）
+   ======================================== */
+
+.section {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  padding: 120px 20px 100px;
+  background: var(--color-bg-secondary);
+  overflow: hidden;
+}
+
+.fadeUp {
+  /* GSAP target */
+}
+
+/* ----------------------------------------
+   Background grid
+   ---------------------------------------- */
+.gridBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    );
+  background-size: 56px 56px;
+  mask-image: radial-gradient(
+    ellipse 80% 70% at 50% 50%,
+    black 20%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 70% at 50% 50%,
+    black 20%,
+    transparent 100%
+  );
+}
+
+/* ----------------------------------------
+   Section label & heading
+   ---------------------------------------- */
+.sectionLabel {
+  position: relative;
+  z-index: 3;
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: var(--color-hud-cyan);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 16px;
+  opacity: 0.8;
+}
+
+.sectionHeading {
+  position: relative;
+  z-index: 3;
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 1.5;
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.accent {
+  color: var(--color-accent);
+  text-shadow: 0 0 20px rgba(215, 0, 58, 0.3);
+}
+
+/* ----------------------------------------
+   Cards row
+   ---------------------------------------- */
+.cardsRow {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1060px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ----------------------------------------
+   Card
+   ---------------------------------------- */
+.card {
+  position: relative;
+  flex: 1;
+  padding: 32px 24px;
+  border: 1px solid var(--color-border);
+  background: rgba(26, 26, 26, 0.5);
+  text-align: center;
+  transition: transform 0.35s ease, border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 240, 255, 0.25);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.05), 0 8px 28px rgba(0, 0, 0, 0.25);
+}
+
+/* ----------------------------------------
+   HUD corners
+   ---------------------------------------- */
+.corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--color-hud-cyan);
+  border-style: solid;
+  border-width: 0;
+  opacity: 0.4;
+}
+
+.cTL {
+  top: -1px;
+  left: -1px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.cTR {
+  top: -1px;
+  right: -1px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+.cBL {
+  bottom: -1px;
+  left: -1px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.cBR {
+  bottom: -1px;
+  right: -1px;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+/* ----------------------------------------
+   Phase code
+   ---------------------------------------- */
+.phaseCode {
+  display: block;
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* ----------------------------------------
+   Icon
+   ---------------------------------------- */
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  color: var(--color-hud-cyan);
+  filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.2));
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+}
+
+/* ----------------------------------------
+   Card text
+   ---------------------------------------- */
+.cardName {
+  font-family: var(--font-orbitron), sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+
+.cardNameSub {
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+}
+
+/* ----------------------------------------
+   Price / period tag
+   ---------------------------------------- */
+.tag {
+  display: inline-block;
+  padding: 6px 18px;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-hud-cyan);
+  margin-bottom: 16px;
+}
+
+/* ----------------------------------------
+   Description
+   ---------------------------------------- */
+.cardDesc {
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (min-width: 768px) {
+  .section {
+    padding: 140px 40px 120px;
+  }
+
+  .sectionHeading {
+    font-size: 38px;
+    margin-bottom: 64px;
+  }
+
+  .cardsRow {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .card {
+    padding: 36px 28px;
+  }
+
+  .cardName {
+    font-size: 17px;
+  }
+
+  .cardDesc {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 160px 80px 140px;
+  }
+
+  .sectionHeading {
+    font-size: 46px;
+  }
+
+  .cardsRow {
+    gap: 32px;
+  }
+
+  .card {
+    padding: 44px 32px;
+  }
+
+  .cardName {
+    font-size: 18px;
+  }
+
+  .corner {
+    width: 18px;
+    height: 18px;
+  }
+}
