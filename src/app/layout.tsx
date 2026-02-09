@@ -2,9 +2,23 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "REGAIN -Homepage- | AIを活用したHP制作コーチング＆制作代行",
+  title: "REGAIN -Homepage- | Webの所有権を取り戻せ",
   description:
-    "スポーツ・フィットネス事業者様向けのAIを活用したHP制作コーチング＆制作代行サービス。新時代に、新しい力を、再インストールせよ。",
+    "スポーツチーム・ジム向けのAI活用HP制作コーチング＆制作代行。月額管理費ゼロ、売り切り型でプロレベルのWebサイトを。",
+  openGraph: {
+    title: "REGAIN -Homepage- | Webの所有権を取り戻せ",
+    description:
+      "スポーツチーム・ジム向けのAI活用HP制作コーチング＆制作代行。月額管理費ゼロ、売り切り型でプロレベルのWebサイトを。",
+    siteName: "REGAIN -Homepage-",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "REGAIN -Homepage- | Webの所有権を取り戻せ",
+    description:
+      "スポーツチーム・ジム向けのAI活用HP制作コーチング＆制作代行。月額管理費ゼロ、売り切り型でプロレベルのWebサイトを。",
+  },
 };
 
 export default function RootLayout({

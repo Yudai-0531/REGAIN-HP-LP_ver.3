@@ -129,14 +129,14 @@
 .axisTick {
   font-family: var(--font-orbitron), sans-serif;
   font-size: 10px;
-  fill: rgba(255, 255, 255, 0.4);
+  fill: rgba(255, 255, 255, 0.55);
   letter-spacing: 0.05em;
 }
 
 .axisTitle {
   font-family: var(--font-orbitron), sans-serif;
   font-size: 10px;
-  fill: rgba(255, 255, 255, 0.3);
+  fill: rgba(255, 255, 255, 0.55);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
