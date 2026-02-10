@@ -6,6 +6,7 @@ import styles from "./Hero.module.css";
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const mainCopyRef = useRef<HTMLHeadingElement>(null);
   const subCopyRef = useRef<HTMLParagraphElement>(null);
@@ -25,6 +26,18 @@ export default function Hero() {
           duration: 0.6,
           delay: 0.3,
           ease: "power2.inOut",
+        });
+      }
+
+      // --- Background video fade in ---
+      const videoEl = videoRef.current;
+      if (videoEl) {
+        gsap.from(videoEl, {
+          opacity: 0,
+          scale: 1.1,
+          duration: 2,
+          delay: 0.3,
+          ease: "power2.out",
         });
       }
 
@@ -111,6 +124,18 @@ export default function Hero() {
         <div className={styles.glitchBar} />
         <div className={styles.glitchBar} />
       </div>
+
+      {/* Background video */}
+      <video
+        ref={videoRef}
+        className={styles.bgVideo}
+        src="/hero-bg.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+      <div className={styles.videoOverlay} />
 
       {/* Fence mesh texture background */}
       <div ref={overlayRef} className={styles.meshOverlay} />

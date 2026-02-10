@@ -16,6 +16,30 @@
 }
 
 /* ----------------------------------------
+   Background video
+   ---------------------------------------- */
+.bgVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.videoOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(13, 13, 13, 0.55) 0%,
+    rgba(13, 13, 13, 0.7) 50%,
+    rgba(13, 13, 13, 0.85) 100%
+  );
+}
+
+/* ----------------------------------------
    Fence mesh texture (CSS generated)
    ---------------------------------------- */
 .meshOverlay {
