@@ -103,6 +103,22 @@ export default function Hero() {
 
   return (
     <section id="hero" ref={sectionRef} className={styles.hero}>
+      {/* Background video */}
+      <div className={styles.videoWrap}>
+        <video
+          className={styles.videoBg}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        >
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        </video>
+        {/* Dark overlay for text readability */}
+        <div className={styles.videoOverlay} />
+      </div>
+
       {/* Glitch overlay */}
       <div ref={glitchRef} className={styles.glitchOverlay}>
         <div className={styles.glitchBar} />

@@ -6,6 +6,7 @@
   position: relative;
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   min-height: 600px;
   display: flex;
   flex-direction: column;
@@ -16,12 +17,48 @@
 }
 
 /* ----------------------------------------
+   Background video
+   ---------------------------------------- */
+.videoWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.videoBg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Dark overlay on top of video for text readability */
+.videoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(13, 13, 13, 0.7) 0%,
+    rgba(13, 13, 13, 0.5) 40%,
+    rgba(13, 13, 13, 0.6) 70%,
+    rgba(13, 13, 13, 0.85) 100%
+  );
+  z-index: 1;
+}
+
+/* ----------------------------------------
    Fence mesh texture (CSS generated)
    ---------------------------------------- */
 .meshOverlay {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
   pointer-events: none;
   /* Diamond / chain-link fence pattern */
   background-image:
@@ -62,7 +99,7 @@
   width: 100%;
   height: 1px;
   background: rgba(255, 255, 255, 0.06);
-  z-index: 2;
+  z-index: 3;
   pointer-events: none;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.03);
 }
@@ -150,11 +187,12 @@
 .mainCopy {
   font-family: var(--font-zen-kaku), sans-serif;
   font-weight: 900;
-  font-size: 36px;
-  line-height: 1.4;
+  font-size: 28px;
+  line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--color-text);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
 }
 
 .heroLine {
@@ -172,11 +210,12 @@
 .subCopy {
   font-family: var(--font-zen-kaku), sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.9;
   color: var(--color-text-muted);
-  margin-bottom: 40px;
+  margin-bottom: 32px;
   max-width: 600px;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
 }
 
 .subCopy .accent {
@@ -191,7 +230,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 .ctaButton {
@@ -199,12 +238,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 18px 56px;
+  padding: 16px 40px;
   background: var(--color-accent);
   color: var(--color-text);
   font-family: var(--font-zen-kaku), sans-serif;
   font-weight: 900;
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 0.05em;
   text-decoration: none;
   border: none;
@@ -284,7 +323,7 @@
   border: 1px solid var(--color-hud-cyan);
   color: var(--color-hud-cyan);
   font-family: var(--font-zen-kaku), sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
 }
@@ -294,44 +333,57 @@
    ---------------------------------------- */
 .tagline {
   position: absolute;
-  bottom: 32px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 5;
   font-family: var(--font-orbitron), sans-serif;
   font-weight: 400;
-  font-size: 11px;
-  letter-spacing: 0.25em;
+  font-size: 10px;
+  letter-spacing: 0.2em;
   color: rgba(255, 255, 255, 0.55);
   text-transform: uppercase;
   white-space: nowrap;
 }
 
 /* ========================================
-   RESPONSIVE — Desktop
+   RESPONSIVE — Tablet (768px+)
    ======================================== */
 @media (min-width: 768px) {
   .mainCopy {
-    font-size: 60px;
-    margin-bottom: 32px;
+    font-size: 52px;
+    line-height: 1.4;
+    margin-bottom: 28px;
   }
 
   .subCopy {
-    font-size: 20px;
-    margin-bottom: 48px;
+    font-size: 18px;
+    margin-bottom: 44px;
   }
 
   .ctaButton {
-    padding: 20px 72px;
+    padding: 20px 64px;
     font-size: 20px;
   }
 
-  .tagline {
+  .ctaWrap {
+    gap: 16px;
+  }
+
+  .badge {
     font-size: 13px;
-    bottom: 40px;
+  }
+
+  .tagline {
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    bottom: 36px;
   }
 }
 
+/* ========================================
+   RESPONSIVE — Desktop (1024px+)
+   ======================================== */
 @media (min-width: 1024px) {
   .mainCopy {
     font-size: 72px;
@@ -340,5 +392,89 @@
 
   .subCopy {
     font-size: 22px;
+    margin-bottom: 48px;
+  }
+
+  .ctaButton {
+    padding: 20px 72px;
+  }
+
+  .tagline {
+    font-size: 13px;
+    bottom: 40px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — Large Desktop (1440px+)
+   ======================================== */
+@media (min-width: 1440px) {
+  .content {
+    max-width: 1200px;
+  }
+
+  .mainCopy {
+    font-size: 80px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — Small phones (max 375px)
+   ======================================== */
+@media (max-width: 375px) {
+  .mainCopy {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .subCopy {
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+
+  .ctaButton {
+    padding: 14px 32px;
+    font-size: 14px;
+  }
+
+  .badge {
+    font-size: 11px;
+    padding: 5px 16px;
+  }
+
+  .tagline {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    bottom: 20px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — Landscape phones
+   ======================================== */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .mainCopy {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .subCopy {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .ctaButton {
+    padding: 12px 36px;
+    font-size: 14px;
+  }
+
+  .tagline {
+    bottom: 12px;
+    font-size: 9px;
   }
 }
