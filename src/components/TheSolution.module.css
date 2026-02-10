@@ -105,12 +105,17 @@
 /* ----------------------------------------
    Graph area
    ---------------------------------------- */
-.graphWrap {
+.graphOuter {
   position: relative;
   z-index: 3;
   width: 100%;
   max-width: 860px;
   margin: 0 auto;
+}
+
+.graphWrap {
+  position: relative;
+  width: 100%;
   aspect-ratio: 800 / 450;
   border: 1px solid var(--color-border);
   background: rgba(26, 26, 26, 0.4);
@@ -133,16 +138,14 @@
   transform-origin: center;
 }
 
-/* Legend container — top-right of graph */
+/* Legend — above graph, right-aligned */
 .legendWrap {
-  position: absolute;
-  top: 8px;
-  right: 12px;
-  z-index: 5;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  align-items: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px 24px;
+  margin-bottom: 12px;
 }
 
 /* SVG text styles */
@@ -169,6 +172,7 @@
   flex-direction: column;
   gap: 2px;
   align-items: flex-end;
+  text-align: right;
 }
 
 .tradLabel {
@@ -242,9 +246,8 @@
   }
 
   .legendWrap {
-    top: 12px;
-    right: 20px;
-    gap: 8px;
+    gap: 12px 32px;
+    margin-bottom: 16px;
   }
 
   .labelAccent,
@@ -271,9 +274,8 @@
   }
 
   .legendWrap {
-    top: 16px;
-    right: 24px;
-    gap: 10px;
+    gap: 14px 40px;
+    margin-bottom: 20px;
   }
 
   .labelAccent,

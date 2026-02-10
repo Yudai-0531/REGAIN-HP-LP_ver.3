@@ -130,7 +130,7 @@ export default function TheSolution() {
       }
 
       /* --- Graph labels fade in --- */
-      const labels = graphWrapRef.current?.querySelectorAll(
+      const labels = sectionRef.current?.querySelectorAll(
         `.${styles.graphLabel}`
       );
       if (labels && labels.length > 0) {
@@ -185,8 +185,8 @@ export default function TheSolution() {
       </p>
 
       {/* Graph area */}
-      <div ref={graphWrapRef} className={styles.graphWrap}>
-        {/* Legend — top-left inside graph */}
+      <div className={styles.graphOuter}>
+        {/* Legend — above graph, right-aligned */}
         <div className={styles.legendWrap}>
           <div className={`${styles.graphLabel} ${styles.tradLabel}`}>
             <span className={styles.labelLine} />
@@ -199,6 +199,8 @@ export default function TheSolution() {
             <span className={styles.labelTag}>OWNERSHIP / 自走</span>
           </div>
         </div>
+
+        <div ref={graphWrapRef} className={styles.graphWrap}>
 
         <svg
           className={styles.graphSvg}
@@ -352,6 +354,7 @@ export default function TheSolution() {
             />
           ))}
         </svg>
+        </div>
       </div>
 
     </section>
