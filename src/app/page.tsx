@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import LPVideo from "@/components/LPVideo";
 import ThePain from "@/components/ThePain";
 import TheSolution from "@/components/TheSolution";
 import Plans from "@/components/Plans";
@@ -14,7 +13,6 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <LPVideo />
         <ThePain />
         <TheSolution />
         <Plans />
