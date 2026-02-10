@@ -8,23 +8,20 @@ import styles from "./TheSolution.module.css";
 gsap.registerPlugin(ScrollTrigger);
 
 /* ------------------------------------------------
-   Graph constants — all values are in the SVG
-   coordinate system (viewBox 0 0 800 400).
+   Graph constants — SVG coordinate system
+   viewBox: 0 0 800 450
    ------------------------------------------------ */
 const GRAPH = {
-  // Plotting area inside the axes
   left: 80,
   right: 760,
-  top: 20,
-  bottom: 360,
-  // Y-axis range
+  top: 40,
+  bottom: 380,
   yMin: 0,
-  yMax: 2_000_000,
-  // 12 months of data
+  yMax: 200_000,
   months: 12,
 } as const;
 
-/** Map a data-point (month, yen) to SVG coords */
+/** Map (month, yen) → SVG coords */
 function toSvg(month: number, yen: number) {
   const x =
     GRAPH.left +
@@ -36,22 +33,24 @@ function toSvg(month: number, yen: number) {
   return { x, y };
 }
 
-/** Build an SVG polyline points string from monthly cumulative costs */
-function buildPath(monthlyCost: number, initial: number = 0): string {
+/** Build polyline points + individual dot coords */
+function buildData(monthlyCost: number, initial: number = 0) {
   const pts: string[] = [];
+  const dots: { cx: number; cy: number }[] = [];
   for (let m = 0; m <= GRAPH.months; m++) {
     const { x, y } = toSvg(m, initial + monthlyCost * m);
     pts.push(`${x},${y}`);
+    dots.push({ cx: x, cy: y });
   }
-  return pts.join(" ");
+  return { points: pts.join(" "), dots };
 }
 
-// Traditional model: initial 300,000 + 10,000/mo → ~420,000 at 12 mo
-// but to make the visual dramatic we show cumulative only (starts at ~100k/mo equivalent)
-const TRAD_INITIAL = 300_000;
-const TRAD_MONTHLY = 120_000; // ≈ agency retainer + hidden costs amortised
+// Traditional: initial setup ¥30,000 + ¥12,000/month
+const TRAD_INITIAL = 30_000;
+const TRAD_MONTHLY = 12_000;
+// REGAIN: ¥1,100/month only
 const REGAIN_INITIAL = 0;
-const REGAIN_MONTHLY = 13_200; // 1,100 * 12 = 13,200/yr shown as monthly cumulative
+const REGAIN_MONTHLY = 1_100;
 
 export default function TheSolution() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -59,10 +58,8 @@ export default function TheSolution() {
   const regainLineRef = useRef<SVGPolylineElement>(null);
   const graphWrapRef = useRef<HTMLDivElement>(null);
 
-  /* Traditional line path */
-  const tradPoints = buildPath(TRAD_MONTHLY, TRAD_INITIAL);
-  /* REGAIN line path */
-  const regainPoints = buildPath(REGAIN_MONTHLY, REGAIN_INITIAL);
+  const trad = buildData(TRAD_MONTHLY, TRAD_INITIAL);
+  const regain = buildData(REGAIN_MONTHLY, REGAIN_INITIAL);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -109,9 +106,28 @@ export default function TheSolution() {
         });
       };
 
-      // White (REGAIN) draws first, then red (traditional)
       animateLine(regainLineRef.current, 0);
       animateLine(tradLineRef.current, 0.8);
+
+      /* --- Dots fade in --- */
+      const dots = graphWrapRef.current?.querySelectorAll(
+        `.${styles.dot}`
+      );
+      if (dots && dots.length > 0) {
+        gsap.from(dots, {
+          opacity: 0,
+          scale: 0,
+          duration: 0.3,
+          stagger: 0.06,
+          delay: 1.4,
+          ease: "back.out(2)",
+          scrollTrigger: {
+            trigger: graphWrapRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        });
+      }
 
       /* --- Graph labels fade in --- */
       const labels = graphWrapRef.current?.querySelectorAll(
@@ -156,15 +172,11 @@ export default function TheSolution() {
     return () => ctx.revert();
   }, []);
 
-  /* --- Y-axis tick marks --- */
-  const yTicks = [0, 500_000, 1_000_000, 1_500_000, 2_000_000];
+  /* --- Y-axis ticks: 0, 5万, 10万, 15万, 20万 --- */
+  const yTicks = [0, 50_000, 100_000, 150_000, 200_000];
 
-  /* --- X-axis tick marks (months) --- */
-  const xTicks = [0, 3, 6, 9, 12];
-
-  /* End-points for labels */
-  const tradEnd = toSvg(GRAPH.months, TRAD_INITIAL + TRAD_MONTHLY * GRAPH.months);
-  const regainEnd = toSvg(GRAPH.months, REGAIN_INITIAL + REGAIN_MONTHLY * GRAPH.months);
+  /* --- X-axis ticks: every month 0–12 --- */
+  const xTicks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   return (
     <section id="solution" ref={sectionRef} className={styles.section}>
@@ -192,9 +204,23 @@ export default function TheSolution() {
 
       {/* Graph area */}
       <div ref={graphWrapRef} className={styles.graphWrap}>
+        {/* Legend — top-left inside graph */}
+        <div className={styles.legendWrap}>
+          <div className={`${styles.graphLabel} ${styles.tradLabel}`}>
+            <span className={styles.labelLine} />
+            <span className={styles.labelAccent}>従来業者 月額 10,000円〜</span>
+            <span className={styles.labelTag}>DEPENDENCE / 依存</span>
+          </div>
+          <div className={`${styles.graphLabel} ${styles.regainLabel}`}>
+            <span className={styles.labelLine} />
+            <span className={styles.labelWhite}>REGAIN 月額 1,100円〜</span>
+            <span className={styles.labelTag}>OWNERSHIP / 自走</span>
+          </div>
+        </div>
+
         <svg
           className={styles.graphSvg}
-          viewBox="0 0 800 420"
+          viewBox="0 0 800 450"
           preserveAspectRatio="xMidYMid meet"
         >
           {/* Axis lines */}
@@ -252,36 +278,36 @@ export default function TheSolution() {
                 textAnchor="middle"
                 className={styles.axisTick}
               >
-                {m === 0 ? "0" : `${m}M`}
+                {m === 0 ? "0" : `${m}`}
               </text>
             );
           })}
 
-          {/* Axis titles */}
+          {/* Axis titles — Japanese */}
           <text
             x={GRAPH.left + (GRAPH.right - GRAPH.left) / 2}
-            y={GRAPH.bottom + 48}
+            y={GRAPH.bottom + 46}
             textAnchor="middle"
             className={styles.axisTitle}
           >
-            Time (1 Year / 12 Months)
+            経過月数（12ヶ月）
           </text>
           <text
-            x={16}
+            x={20}
             y={GRAPH.top + (GRAPH.bottom - GRAPH.top) / 2}
             textAnchor="middle"
             className={styles.axisTitle}
-            transform={`rotate(-90, 16, ${
+            transform={`rotate(-90, 20, ${
               GRAPH.top + (GRAPH.bottom - GRAPH.top) / 2
             })`}
           >
-            Cumulative Cost (JPY)
+            累計コスト（円）
           </text>
 
           {/* REGAIN line (white) — draws first */}
           <polyline
             ref={regainLineRef}
-            points={regainPoints}
+            points={regain.points}
             fill="none"
             stroke="var(--color-text)"
             strokeWidth="2.5"
@@ -292,7 +318,7 @@ export default function TheSolution() {
           {/* Traditional line (red) — draws second */}
           <polyline
             ref={tradLineRef}
-            points={tradPoints}
+            points={trad.points}
             fill="none"
             stroke="var(--color-accent)"
             strokeWidth="2.5"
@@ -300,9 +326,9 @@ export default function TheSolution() {
             strokeLinecap="round"
           />
 
-          {/* Glow duplicates for neon effect */}
+          {/* Glow duplicates */}
           <polyline
-            points={regainPoints}
+            points={regain.points}
             fill="none"
             stroke="var(--color-text)"
             strokeWidth="6"
@@ -311,7 +337,7 @@ export default function TheSolution() {
             className={styles.glowLine}
           />
           <polyline
-            points={tradPoints}
+            points={trad.points}
             fill="none"
             stroke="var(--color-accent)"
             strokeWidth="6"
@@ -319,32 +345,31 @@ export default function TheSolution() {
             opacity="0.15"
             className={styles.glowLine}
           />
+
+          {/* Dot points — traditional (red) */}
+          {trad.dots.map((d, i) => (
+            <circle
+              key={`td-${i}`}
+              cx={d.cx}
+              cy={d.cy}
+              r="4"
+              fill="var(--color-accent)"
+              className={styles.dot}
+            />
+          ))}
+
+          {/* Dot points — REGAIN (white) */}
+          {regain.dots.map((d, i) => (
+            <circle
+              key={`rd-${i}`}
+              cx={d.cx}
+              cy={d.cy}
+              r="4"
+              fill="var(--color-text)"
+              className={styles.dot}
+            />
+          ))}
         </svg>
-
-        {/* Floating labels for graph lines */}
-        <div
-          className={`${styles.graphLabel} ${styles.tradLabel}`}
-          style={{
-            top: `${(tradEnd.y / 420) * 100}%`,
-            right: "4%",
-          }}
-        >
-          <span className={styles.labelLine} />
-          <span className={styles.labelAccent}>月額 10,000円〜</span>
-          <span className={styles.labelTag}>DEPENDENCE / 依存</span>
-        </div>
-
-        <div
-          className={`${styles.graphLabel} ${styles.regainLabel}`}
-          style={{
-            bottom: `${((420 - regainEnd.y) / 420) * 100 + 2}%`,
-            right: "4%",
-          }}
-        >
-          <span className={styles.labelLine} />
-          <span className={styles.labelWhite}>月額 1,100円〜</span>
-          <span className={styles.labelTag}>OWNERSHIP / 自走</span>
-        </div>
       </div>
 
       {/* HUD card */}

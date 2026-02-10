@@ -9,7 +9,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const BODY_LINES = [
   "「ダサいHP」への支払いは終わりだ。",
-  "その資金で選手に投資を。あなたが創ったイケてるHPでチームの魅力を。",
+  "その資金で選手に投資を。",
+  "あなたが創ったイケてるHPでチームの魅力を。",
   "チームにふさわしい「魅力が最大化するWebサイト」を手に入れろ。",
 ];
 
@@ -120,7 +121,7 @@ export default function Closing() {
 
           {/* Logo text */}
           <p className={styles.logo}>REGAIN</p>
-          <p className={styles.ctaSub}>無料相談・デモ体験はこちら</p>
+          <p className={styles.ctaSub}>無料相談はこちら</p>
 
           {/* CTA button */}
           <a href="#contact" className={styles.ctaButton}>

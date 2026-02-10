@@ -111,8 +111,7 @@
   width: 100%;
   max-width: 860px;
   margin: 0 auto 48px;
-  aspect-ratio: 800 / 420;
-  /* Faint border */
+  aspect-ratio: 800 / 450;
   border: 1px solid var(--color-border);
   background: rgba(26, 26, 26, 0.4);
   padding: 8px;
@@ -124,9 +123,25 @@
   height: 100%;
 }
 
-/* Glow duplicate lines (always visible, very faint) */
+/* Glow duplicate lines */
 .glowLine {
   pointer-events: none;
+}
+
+/* Dot points on each month */
+.dot {
+  transform-origin: center;
+}
+
+/* Legend container — top-left */
+.legendWrap {
+  position: absolute;
+  top: 12px;
+  left: 100px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 /* SVG text styles */
@@ -149,19 +164,15 @@
    Graph floating labels
    ---------------------------------------- */
 .graphLabel {
-  position: absolute;
   display: flex;
   flex-direction: column;
   gap: 2px;
-  z-index: 4;
 }
 
 .tradLabel {
-  /* positioned via inline style */
 }
 
 .regainLabel {
-  /* positioned via inline style */
 }
 
 .labelLine {
