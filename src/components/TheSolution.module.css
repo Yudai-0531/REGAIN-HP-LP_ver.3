@@ -133,11 +133,11 @@
   transform-origin: center;
 }
 
-/* Legend — inside graph, top-left empty area */
+/* Legend — inside graph, top-left empty area (below ¥20万 line) */
 .legendWrap {
   position: absolute;
-  top: 5%;
-  left: 13%;
+  top: 16%;
+  left: 18%;
   z-index: 5;
   display: flex;
   flex-direction: column;
@@ -242,8 +242,8 @@
   }
 
   .legendWrap {
-    top: 4%;
-    left: 14%;
+    top: 14%;
+    left: 17%;
     gap: 10px;
   }
 
@@ -271,8 +271,8 @@
   }
 
   .legendWrap {
-    top: 3%;
-    left: 13%;
+    top: 13%;
+    left: 16%;
     gap: 12px;
   }
 
