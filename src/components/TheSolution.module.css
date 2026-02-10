@@ -1,11 +1,10 @@
 /* ========================================
-   THE SOLUTION SECTION（コスト革命）
+   THE SOLUTION SECTION — Zig-Zag Feature Blocks
    ======================================== */
 
 .section {
   position: relative;
   width: 100%;
-  min-height: 100vh;
   padding: 120px 20px 100px;
   background: var(--color-bg);
   overflow: hidden;
@@ -15,7 +14,7 @@
    Utility
    ---------------------------------------- */
 .fadeUp {
-  /* GSAP will animate from opacity:0 / y:50 */
+  /* GSAP target */
 }
 
 /* ----------------------------------------
@@ -50,7 +49,7 @@
 }
 
 /* ----------------------------------------
-   Section label & heading
+   Section header
    ---------------------------------------- */
 .sectionLabel {
   position: relative;
@@ -81,10 +80,6 @@
   margin-right: auto;
 }
 
-.headingLine {
-  display: block;
-}
-
 .accent {
   color: var(--color-accent);
   text-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
@@ -99,21 +94,149 @@
   line-height: 1.8;
   color: var(--color-text-muted);
   text-align: center;
-  margin-bottom: 56px;
+  margin-bottom: 64px;
 }
 
 /* ----------------------------------------
-   Graph area
+   Features container
    ---------------------------------------- */
-.graphWrap {
+.featuresContainer {
   position: relative;
   z-index: 3;
-  width: 100%;
-  max-width: 860px;
+  max-width: 1100px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+/* ----------------------------------------
+   Feature block — Zig-Zag
+   ---------------------------------------- */
+.featureBlock {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+
+/* Visual column */
+.visualCol {
+  width: 100%;
+  max-width: 540px;
+}
+
+/* Text column */
+.textCol {
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ----------------------------------------
+   Background numbers — 01, 02, 03, 04
+   ---------------------------------------- */
+.bgNumber {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-orbitron), sans-serif;
+  font-weight: 900;
+  font-size: 120px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* ----------------------------------------
+   Icon wrap
+   ---------------------------------------- */
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 20px;
+  color: var(--color-accent);
+  filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.35));
+  border: 1px solid rgba(255, 0, 0, 0.15);
+  background: rgba(255, 0, 0, 0.05);
+}
+
+/* ----------------------------------------
+   Feature text
+   ---------------------------------------- */
+.featureHeadline {
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+.featureDesc {
+  font-family: var(--font-zen-kaku), sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 2;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ----------------------------------------
+   Image placeholder — Dark glassmorphism
+   ---------------------------------------- */
+.imagePlaceholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(40, 40, 40, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.placeholderText {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+}
+
+/* ----------------------------------------
+   Graph (01 block visual)
+   ---------------------------------------- */
+.graphWrap {
+  width: 100%;
+}
+
+.graphInner {
+  position: relative;
+  width: 100%;
   aspect-ratio: 800 / 450;
-  border: 1px solid var(--color-border);
-  background: rgba(26, 26, 26, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(40, 40, 40, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.3);
   padding: 8px;
 }
 
@@ -123,17 +246,15 @@
   height: 100%;
 }
 
-/* Glow duplicate lines */
 .glowLine {
   pointer-events: none;
 }
 
-/* Dot points on each month */
 .dot {
   transform-origin: center;
 }
 
-/* Legend — inside graph, top-left empty area (below ¥20万 line) */
+/* Legend — inside graph, top-left empty area */
 .legendWrap {
   position: absolute;
   top: 16%;
@@ -222,6 +343,8 @@
 /* ========================================
    RESPONSIVE
    ======================================== */
+
+/* --- Tablet (768px+) --- */
 @media (min-width: 768px) {
   .section {
     padding: 140px 40px 120px;
@@ -234,11 +357,60 @@
 
   .subHeading {
     font-size: 20px;
-    margin-bottom: 64px;
+    margin-bottom: 80px;
   }
 
-  .graphWrap {
-    padding: 16px;
+  .featuresContainer {
+    gap: 120px;
+  }
+
+  .featureBlock {
+    flex-direction: row;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .featureBlock.reversed {
+    flex-direction: row-reverse;
+  }
+
+  .visualCol {
+    flex: 1;
+    max-width: none;
+  }
+
+  .textCol {
+    flex: 1;
+    max-width: none;
+  }
+
+  .bgNumber {
+    font-size: 200px;
+    top: -40px;
+    left: 0;
+    transform: none;
+  }
+
+  .featureBlock.reversed .bgNumber {
+    left: auto;
+    right: 0;
+  }
+
+  .featureHeadline {
+    font-size: 26px;
+  }
+
+  .featureDesc {
+    font-size: 15px;
+  }
+
+  .iconWrap {
+    width: 56px;
+    height: 56px;
+  }
+
+  .graphInner {
+    padding: 12px;
   }
 
   .legendWrap {
@@ -249,14 +421,15 @@
 
   .labelAccent,
   .labelWhite {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .labelTag {
-    font-size: 10px;
+    font-size: 9px;
   }
 }
 
+/* --- Desktop (1024px+) --- */
 @media (min-width: 1024px) {
   .section {
     padding: 160px 80px 140px;
@@ -270,6 +443,36 @@
     font-size: 22px;
   }
 
+  .featuresContainer {
+    gap: 140px;
+  }
+
+  .featureBlock {
+    gap: 64px;
+  }
+
+  .bgNumber {
+    font-size: 260px;
+    top: -60px;
+  }
+
+  .featureHeadline {
+    font-size: 30px;
+  }
+
+  .featureDesc {
+    font-size: 16px;
+  }
+
+  .iconWrap {
+    width: 60px;
+    height: 60px;
+  }
+
+  .graphInner {
+    padding: 16px;
+  }
+
   .legendWrap {
     top: 13%;
     left: 16%;
@@ -278,11 +481,11 @@
 
   .labelAccent,
   .labelWhite {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .labelTag {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .labelLine {
