@@ -6,6 +6,7 @@ import styles from "./Hero.module.css";
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const mainCopyRef = useRef<HTMLHeadingElement>(null);
   const subCopyRef = useRef<HTMLParagraphElement>(null);
@@ -25,6 +26,18 @@ export default function Hero() {
           duration: 0.6,
           delay: 0.3,
           ease: "power2.inOut",
+        });
+      }
+
+      // --- Video fade in ---
+      const videoEl = videoRef.current;
+      if (videoEl) {
+        gsap.from(videoEl, {
+          opacity: 0,
+          scale: 1.1,
+          duration: 2.0,
+          delay: 0.2,
+          ease: "power2.out",
         });
       }
 
@@ -103,6 +116,22 @@ export default function Hero() {
 
   return (
     <section id="hero" ref={sectionRef} className={styles.hero}>
+      {/* Background video */}
+      <video
+        ref={videoRef}
+        className={styles.videoBg}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+      >
+        <source src="/hero-bg.webm" type="video/webm" />
+      </video>
+
+      {/* Dark gradient overlay for text readability */}
+      <div className={styles.videoOverlay} />
+
       {/* Glitch overlay */}
       <div ref={glitchRef} className={styles.glitchOverlay}>
         <div className={styles.glitchBar} />
