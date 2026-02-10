@@ -149,24 +149,6 @@ export default function TheSolution() {
         });
       }
 
-      /* --- HUD card --- */
-      const hudCard = sectionRef.current?.querySelector(
-        `.${styles.hudCard}`
-      );
-      if (hudCard) {
-        gsap.from(hudCard, {
-          x: 40,
-          opacity: 0,
-          duration: 0.8,
-          delay: 2.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: hudCard,
-            start: "top 90%",
-            toggleActions: "play none none none",
-          },
-        });
-      }
     }, sectionRef);
 
     return () => ctx.revert();
@@ -372,19 +354,6 @@ export default function TheSolution() {
         </svg>
       </div>
 
-      {/* HUD card */}
-      <div className={styles.hudCard}>
-        <span className={`${styles.hudCorner} ${styles.cTL}`} />
-        <span className={`${styles.hudCorner} ${styles.cTR}`} />
-        <span className={`${styles.hudCorner} ${styles.cBL}`} />
-        <span className={`${styles.hudCorner} ${styles.cBR}`} />
-        <p className={styles.hudMain}>
-          最高級のWebサイトを「所有」し、AIで「運用」する。
-        </p>
-        <p className={styles.hudSub}>
-          (Agency fixes capped at ¥22,000/mo)
-        </p>
-      </div>
     </section>
   );
 }

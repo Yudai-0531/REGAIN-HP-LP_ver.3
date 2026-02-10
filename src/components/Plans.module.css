@@ -475,12 +475,13 @@
 .guarantee {
   position: relative;
   z-index: 3;
-  max-width: 520px;
+  max-width: 960px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 20px 28px;
+  padding: 24px;
   border: 1px solid rgba(255, 0, 0, 0.25);
   background: rgba(255, 0, 0, 0.05);
 }
@@ -554,6 +555,10 @@
   .careRight {
     text-align: right;
   }
+
+  .guarantee {
+    padding: 24px 32px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -590,6 +595,6 @@
   }
 
   .guarantee {
-    padding: 24px 36px;
+    padding: 28px 40px;
   }
 }
