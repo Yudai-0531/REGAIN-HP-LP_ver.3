@@ -103,6 +103,17 @@ export default function Hero() {
 
   return (
     <section id="hero" ref={sectionRef} className={styles.hero}>
+      {/* Background video */}
+      <video
+        className={styles.heroBgVideo}
+        src="/hero-bg.webm"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+      <div className={styles.heroBgVideoOverlay} />
+
       {/* Glitch overlay */}
       <div ref={glitchRef} className={styles.glitchOverlay}>
         <div className={styles.glitchBar} />
