@@ -191,6 +191,84 @@
 }
 
 /* ----------------------------------------
+   Video wrap — HUD-style video background
+   ---------------------------------------- */
+.videoWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0a0a0a;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(255, 0, 0, 0.06);
+}
+
+.videoElement {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.videoOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(13, 13, 13, 0.15) 0%,
+      transparent 20%,
+      transparent 80%,
+      rgba(13, 13, 13, 0.25) 100%
+    );
+  z-index: 1;
+}
+
+/* HUD corner decorations */
+.hudCorner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hudTL {
+  top: 0;
+  left: 0;
+  border-top: 2px solid var(--color-accent);
+  border-left: 2px solid var(--color-accent);
+}
+
+.hudTR {
+  top: 0;
+  right: 0;
+  border-top: 2px solid var(--color-accent);
+  border-right: 2px solid var(--color-accent);
+}
+
+.hudBL {
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid var(--color-accent);
+  border-left: 2px solid var(--color-accent);
+}
+
+.hudBR {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid var(--color-accent);
+  border-right: 2px solid var(--color-accent);
+}
+
+/* ----------------------------------------
    Image placeholder — Dark glassmorphism
    ---------------------------------------- */
 .imagePlaceholder {
@@ -427,6 +505,11 @@
   .labelTag {
     font-size: 9px;
   }
+
+  .hudCorner {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 /* --- Desktop (1024px+) --- */
@@ -491,5 +574,18 @@
   .labelLine {
     width: 28px;
     height: 3px;
+  }
+
+  .hudCorner {
+    width: 24px;
+    height: 24px;
+  }
+
+  .videoWrap {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.04),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+      0 12px 48px rgba(0, 0, 0, 0.5),
+      0 0 80px rgba(255, 0, 0, 0.08);
   }
 }

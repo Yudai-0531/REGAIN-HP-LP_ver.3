@@ -66,6 +66,7 @@ const FEATURES = [
       "もう、修正依頼のたびに見積もりを待つ必要はありません。初期費用のみの「買い切り型」で、月額コストの呪縛からチームを解き放ちます。浮いた予算は、選手の強化費へ。",
     placeholder: "Cost Comparison Graph",
     hasGraph: true,
+    videoSrcs: null as string[] | null,
   },
   {
     num: "02",
@@ -75,6 +76,7 @@ const FEATURES = [
       "REGAINは単なる制作代行ではありません。AIを使った「自走スキル」をコーチングします。誰かに依存するのではなく、自分たちの手で未来を切り拓く力を提供します。",
     placeholder: "Image Placeholder 02",
     hasGraph: false,
+    videoSrcs: ["/videos/REGAIN_LP2.webm", "/videos/REGAIN_LP3.webm"],
   },
   {
     num: "03",
@@ -84,6 +86,7 @@ const FEATURES = [
       "試合結果、急なスケジュール変更、保護者への連絡。外部業者への連絡待ち時間はゼロです。思いついたその瞬間に、スマホ一つでサイトを更新できるスピード感を手に入れましょう。",
     placeholder: "Image Placeholder 03",
     hasGraph: false,
+    videoSrcs: null as string[] | null,
   },
   {
     num: "04",
@@ -93,6 +96,7 @@ const FEATURES = [
       "テンプレート感丸出しの「ダサい」サイトは、チームのブランドを毀損します。黒と赤を基調とした、アグレッシブかつ洗練されたデザインで、対戦相手や入部希望者を圧倒します。",
     placeholder: "Image Placeholder 04",
     hasGraph: false,
+    videoSrcs: null as string[] | null,
   },
 ] as const;
 
@@ -380,6 +384,27 @@ export default function TheSolution() {
                       trad={trad}
                       regain={regain}
                     />
+                  </div>
+                ) : feat.videoSrcs ? (
+                  <div className={styles.videoWrap}>
+                    <video
+                      className={styles.videoElement}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                    >
+                      {feat.videoSrcs.map((src) => (
+                        <source key={src} src={src} type="video/webm" />
+                      ))}
+                    </video>
+                    <div className={styles.videoOverlay} />
+                    {/* HUD corner decorations */}
+                    <span className={`${styles.hudCorner} ${styles.hudTL}`} />
+                    <span className={`${styles.hudCorner} ${styles.hudTR}`} />
+                    <span className={`${styles.hudCorner} ${styles.hudBL}`} />
+                    <span className={`${styles.hudCorner} ${styles.hudBR}`} />
                   </div>
                 ) : (
                   <div className={styles.imagePlaceholder}>
