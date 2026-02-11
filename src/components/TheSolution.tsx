@@ -93,6 +93,8 @@ const FEATURES = [
       "テンプレート感丸出しの「ダサい」サイトは、チームのブランドを毀損します。黒と赤を基調とした、アグレッシブかつ洗練されたデザインで、対戦相手や入部希望者を圧倒します。",
     placeholder: "Image Placeholder 04",
     hasGraph: false,
+    hasVideo: true,
+    videoSrc: "/REGAIN_LP3.webm",
   },
 ] as const;
 
@@ -380,6 +382,18 @@ export default function TheSolution() {
                       trad={trad}
                       regain={regain}
                     />
+                  </div>
+                ) : "hasVideo" in feat && feat.hasVideo ? (
+                  <div className={styles.videoWrap}>
+                    <video
+                      className={styles.videoElement}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    >
+                      <source src={"videoSrc" in feat ? (feat.videoSrc as string) : ""} type="video/webm" />
+                    </video>
                   </div>
                 ) : (
                   <div className={styles.imagePlaceholder}>
