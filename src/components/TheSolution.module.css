@@ -219,6 +219,86 @@
 }
 
 /* ----------------------------------------
+   Video placeholder — Feature 02
+   ---------------------------------------- */
+.videoPlaceholder {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0D0D0D;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.videoBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.videoOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(13, 13, 13, 0.15) 0%,
+      transparent 20%,
+      transparent 80%,
+      rgba(13, 13, 13, 0.25) 100%
+    );
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.3);
+}
+
+/* HUD corner accents */
+.videoCornerTL,
+.videoCornerTR,
+.videoCornerBL,
+.videoCornerBR {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.videoCornerTL {
+  top: 0;
+  left: 0;
+  border-top: 2px solid var(--color-accent);
+  border-left: 2px solid var(--color-accent);
+}
+
+.videoCornerTR {
+  top: 0;
+  right: 0;
+  border-top: 2px solid var(--color-accent);
+  border-right: 2px solid var(--color-accent);
+}
+
+.videoCornerBL {
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid var(--color-accent);
+  border-left: 2px solid var(--color-accent);
+}
+
+.videoCornerBR {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid var(--color-accent);
+  border-right: 2px solid var(--color-accent);
+}
+
+/* ----------------------------------------
    Graph (01 block visual)
    ---------------------------------------- */
 .graphWrap {
@@ -413,6 +493,14 @@
     padding: 12px;
   }
 
+  .videoCornerTL,
+  .videoCornerTR,
+  .videoCornerBL,
+  .videoCornerBR {
+    width: 20px;
+    height: 20px;
+  }
+
   .legendWrap {
     top: 14%;
     left: 17%;
@@ -471,6 +559,14 @@
 
   .graphInner {
     padding: 16px;
+  }
+
+  .videoCornerTL,
+  .videoCornerTR,
+  .videoCornerBL,
+  .videoCornerBR {
+    width: 24px;
+    height: 24px;
   }
 
   .legendWrap {
