@@ -76,7 +76,7 @@ const FEATURES = [
     placeholder: "Image Placeholder 02",
     hasGraph: false,
     hasVideo: true,
-    videoSrc: "/REGAIN_LP3.webm",
+    videoSrc: "/REGAIN_LP2.webm",
   },
   {
     num: "03",
@@ -95,6 +95,8 @@ const FEATURES = [
       "テンプレート感丸出しの「ダサい」サイトは、チームのブランドを毀損します。黒と赤を基調とした、アグレッシブかつ洗練されたデザインで、対戦相手や入部希望者を圧倒します。",
     placeholder: "Image Placeholder 04",
     hasGraph: false,
+    hasVideo: true,
+    videoSrc: "/REGAIN_LP3.webm",
   },
 ] as const;
 
