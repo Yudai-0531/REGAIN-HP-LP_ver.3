@@ -86,6 +86,8 @@ const FEATURES = [
       "試合結果、急なスケジュール変更、保護者への連絡。外部業者への連絡待ち時間はゼロです。思いついたその瞬間に、スマホ一つでサイトを更新できるスピード感を手に入れましょう。",
     placeholder: "Image Placeholder 03",
     hasGraph: false,
+    hasVideo: true,
+    videoSrc: "/REGAIN_LP3.webm",
   },
   {
     num: "04",
@@ -96,7 +98,7 @@ const FEATURES = [
     placeholder: "Image Placeholder 04",
     hasGraph: false,
     hasVideo: true,
-    videoSrc: "/REGAIN_LP3.webm",
+    videoSrc: "/REGAIN_LP4.webm",
   },
 ] as const;
 
